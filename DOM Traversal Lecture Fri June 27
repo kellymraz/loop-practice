@@ -1,0 +1,362 @@
+DOM Traversal Lecture Fri June 27
+
+DOM Creqation and Removal
+
+JQ can add and create new DOM elements.
+If you have a non-delegated event attachment it won't apply to new elements.
+
+Why would you remove or create new elements in the DOM?  If you want to click and remove something from the doc flow, or add data (ex. reviews, comments)
+
+if you use AJAX you don't have a static DOM
+
+$(function(){
+	
+});
+
+	The above is shorthand for a document callback function
+
+$("h1").append("content to be added at eh end")
+
+Append takes strings, text, and variables if they have strings as arguments.  Adds content to the end of an element.
+
+Prepend takes the same arguments but puts them at the beginning of an element.  These work WITHIN an element.
+
+$("h1").prepend("content to be added at beginning")
+
+Append and prepend can also take html
+
+$("h1").append("<div>This is an appended div</div">)
+
+This div would be the LAST CHILD of the 
+element
+
+Prepend would be the first child of the element selected
+
+BEGORE is another method for placing content in the DOM
+
+BEFORE 
+
+Makes text a sibling content/element.
+ AFTER will place it as the next sibling
+
+$(h1:).before("Hi I'm new here")[]
+
+output:  This is my header
+Hi I'm new here
+
+AFTER takes the same arguments and works the same way-- a whole element before or after the elemnt.
+You can put html inside of these too.
+
+Sometimes we don't want to write out all the html or we are using a reusable block.  
+
+You can store any JQ elements as variables.  
+
+If we had a lot of methods that are using the h1 selector we don't want to have to write it out every time.
+
+
+
+
+We can create a DOM node.  this info won't live in the document. It is a virtual element.
+
+var myDiv = $("<div class="my-div"> Hello, I am new! </div>)
+
+Now we can run methods on the variable
+myDiv
+
+myDiv.text("some other text").css({
+	"background-color" : "blue",
+	"color" : "white",
+
+
+});
+
+$("body").append(myDiv);
+console.log(myDiv)
+
+If you need to append an event, like loading comments, you should use this method of storing info in a variable.  This will keep your code more organized.
+
+If it's a parent or nested comment, for example, use a parent or nested div.
+
+HTML is static content, remember, so this method allows for change without rewriting the HTML
+
+You can also do concatenation inside of a variable
+
+var myName = "Franklin"
+
+var myDiv = $("<div class="my-div"> Hello  " + myName + " ! </div>) 
+
+output:  Hello Franklin!
+
+
+When you create an html element there can only be one of it.  
+
+CLONE method will clone the element that you're working on.  
+
+var clonedDiv = myDiv.clone()
+$("h1").append(clonedDiv;);
+
+CLONE returns a new DOM elemtn that looks exactly like the one you cloned from. 
+
+REMOVE can be used to destroy content.
+
+$("h1").remove();
+
+Anything inside of the h1 will be gone.  We remove the whole h1
+If you remove the parent node the children nodes have nothing to attach to.
+
+IF you don't want to destroy the container but just the content, you can empty out the contents with
+
+.empty
+
+$("h1").empty();
+
+The h1 container is still there but nothing inside of it will show.  
+
+DOM Traversal
+
+Gjoing from one element to antother element
+ex you click a button that is going to affect a different element
+
+
+
+
+<div class="big-container"> created in html
+
+<h2>Thing 1</h2>
+
+<div class="small-container"> html
+
+<p class="price">$45.00<p>
+
+<button class="buy-button">Buy me!</button>
+
+
+
+<div class="big-container"> created in html
+
+<h2>Thing 2</h2>
+<h3>On Sale!</>
+
+<div class="small-container"> html
+
+<p class="price">$105.00<p>
+
+<button class="buy-button">Buy me!</button>
+
+This would show 2 headers with two buttons
+
+Keyword THIS
+
+treated like a variable, it is not a string
+
+Gives us a nice context for what the targey of the event is
+You can select it with jQ
+
+$(".buy-button").on("click", function(){
+
+console.log(this)
+
+$(this)
+
+var clickedButton = $(this)
+
+
+
+}
+
+Remember you are creating a jQ object
+Above, "this" refers to the button.
+
+The price and the button are sibling elemnts, nested inside of the div.  They are at the same level.
+
+There is a DOM traversal called SIBLINGS that will return all the siblings of your selector
+
+.siblings
+
+The object returned from .siblings will no longer be THIS, it will be a match
+
+Anything we run on "this"
+will be attached to the siblings but not the target element.
+
+Now when you click buttons, you will get the 2 different prices
+
+DOM traversal methods can take arguments
+
+h3 above "On Sale!"  
+
+If we're only interested in the <p> with price, we can say "only give me the siblings of "
+
+( $(this).siblings("   ")
+would just give us the price
+
+.parent
+
+Parent will grab the direct parent (ex. the div above it) of the targeted element.
+
+DOM traversal methods return the new selection of elements
+
+YOU CAN CHANGE THE METHOD TO TRAVEL UP AS MANY LEVEL AS YOU NEED, BUT PARENT LEVEL ONLY GOES UP ONE LEVEL AT A TIME AND IS TIGHTLY STRUCTURED TO THE CONTENT OF YOUR HTML.
+
+.closest
+
+This method will select all of the parent elements until it matches a selector we pass thru or until it hits the document.
+
+from click button directly to big container...
+
+( clickedButton.closest('.big-container")  CHECK SYNTAX
+
+.closest ONLY GOES UP THRU THE ANCESTORS, goes up one-by-one
+
+THERE CAN ONLY BE ONE DIRECT PARENT
+
+.find will go back down and you want to pass a selector thru it
+You might use a .closest and a .find together
+
+($("big-container").find("h2"))
+
+"Go to the big container and find all of the h2 inside of it"
+
+$(this).closest(".big-container")
+
+This would return the div class "big container"
+
+We are now at the top of DOM tree of elements
+
+if we call .text we would get the text of the h2
+
+
+console.log ( $(this).closest(".big-container").find("h2"),text() );
+
+The event target is the button.  We go up using .closest and then back down with find.
+
+.children only goes down one level
+
+console.log $('.small-container').children(.text("hello") );
+
+
+DOUBLE CHECK THIS--The above would change all the text in the html to say "hello" (instead of price, buy me, thing 1 and thing 2)
+
+You can filter out and just address one child, as filtered by .price above
+
+api.jquery.com is your best friend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
