@@ -1,0 +1,305 @@
+FUNCTIONAL PROGRAMMING LECTURE
+JUNE 29
+
+Expressive Funcitonal Javascript
+
+fuctional programming is a programming
+paradigm and a way to approach your code
+
+Two big concepts
+-immutablitity
+
+Focusing on creating new data without affecting
+old datq
+Why would you use?  If your constantly chaning
+an original set of data you will run into issues.
+We want to keep old and new data separate from the old.
+Immutability mostly comes from PURE FUNCTIONS.
+
+PURE FUNCTIONS are functions that don't have any
+side effects-- functions don't change global variable.  A
+pure function would return an entirely new array of
+data
+
+If you are changing the original data, it is not a pure
+function.  
+
+If your function returns an entirely new array that doesn't affect
+anything outside of itself that is a pure function
+No side effects
+
+COMPOSABILITY
+Abstracting functionality.  Think of making lego pieces
+that fit together to create functionality.  Ex. chaining methods 
+to compose a greater piece of functionality.
+
+
+There are 3 major things we work with in js
+STATEMENTS - if/else, for loops...   They just define control
+flow.  Can be restrictive.  Without the context of a function
+you are changing data-- not immutable
+
+var message;
+if(isValid {
+	message = "Thank you"
+
+})
+
+doesn't actually do anything
+
+EXPRESSIONS actually run down to a value.  A function is
+an expression that evaluates to what it is returning,
+expressions evaluate to a value.  
+
+
+
+var message = isValid ? "Thank you"  : "Sorry";
+
+The ? is a terniary value and will return truthy or falsey outcome.  
+The right side of the equation runs down to a value
+YOu can't assign a for loop to a variable because it
+is a statement that affects control flow.
+
+A LOOP IS NOT AN EXPRESSION. An expression returns something new.
+
+You can't run a join on a for-loop;  you can't set a for-loop to 
+a variable. 
+
+Most of the time we are looping over arrays and we're affecting
+all of the items in the array 
+
+FUNCTIONS ARE EXPRESSIONS
+
+How can you remove an item from an array to be looped over?
+
+There is a function you can call on arrays called "map"
+Map will call the function you feed it on each item in
+an array and returns the results in a new array.  Map is like 
+a for-loop.
+
+var results = myArray.map(f)  
+
+Map allows us to call a function on each item on an array.  map wants to
+return a value on each item in the array
+
+You feed map a function
+
+var cap = funciton(s) {
+	var firstLetter = s[0];
+	var rest = s.slice(1);
+	return firstLetter.toUpperCase() + rest;
+};
+
+var names = ["tj", "dominic", "addy"];
+console.log(names.map(cap).join(","));
+
+
+Calling map returns a new array of values, one for each in 
+your original array.  map runs a for-loop for you.
+
+s above is a reference to the argument we are
+passing in
+
+Functional point of view-- don't mess with your
+original data!  Func programming limits the change of
+state to your original data.  
+
+Procedural programming is top-down, doing what you need to
+get done. It is usually synchronous, doing things in order 
+one right after another.
+
+Composability is using small pieces and putting them together
+to create something new
+Functions are building blocks.  
+
+HIGHER ORDER FUNCTIONS
+Take other functions as arguments or return functions as part of
+the return statement.
+This is one of the nice aspects of javascript
+map is a higher order function-- it can take a function as an
+argument.
+
+FILTER
+Another big piece of functionality
+
+var names = ["tj", "dominic", "sindre", "addy"];
+
+	var shortNames = []
+
+
+filter:  you want to return true if you want to keep
+the item or false if you don't want to keep it.
+
+A short list of some of the built in methods, usable on arrays:
+map, filter, reduce, foreach, sort(sort is for arrays of objects)
+
+These are all higher order functions
+
+Procedural prog is about executing commands (if/else) and control flow but
+not manimpulating values
+
+Func prog is about manipulating values and creating new data
+
+underscore.js documentcloud.github.com/underscore is a utility belt for funcitonal programming
+
+MORE ABOUT map
+
+See demo code repo for examples
+map takes a function as an argument
+
+
+var myNumbers = [2, 12, 3, 17, 233]
+var doubleDown = function(){
+	return number * 2
+
+}
+
+console.log(myNumbers.map(doubleDown));
+
+myNumbers is immutable, it will not change
+no matter how many times we use map on it
+
+map is a simple for-loop
+
+USE FILTER to grab certain items from an array and "get rid" of the 
+rest (ex.  you want to make a new array of only even numbers from a mixed 
+array of numbers)
+
+FILTER
+Useful for filtering things out.  Most useful when working with an arrayof items;  like
+items that have different properties (ex list of dogs with properties of breed and
+temperament). Each fruit in the list below is an object
+
+var fruits = [
+	{
+		name : "pineapple",
+		growsOnTree : false
+	},
+
+	{ 	name : "banana",
+		growsOnTree : true
+
+	}
+
+]
+
+var treeFruit = function(fruit) {
+	return fruit.growsOnTree
+}
+
+The treeFruit function is our callback for filter
+filter is a method on an array
+
+fruits.filter(treeFruit) (Could get rid of this line or set it to a variable)
+console.log(fruits.filter(treeFruit))
+
+
+
+
+
+
+
+REDUCE  Good for adding things together or 
+breaking them down.  It is a method you can call on an
+array that takes 2 arguments.
+
+Use reduce to find the sums of the number
+
+var myNumbers = [2, 12, 3, 17, 233]
+
+var summer = function(runningTotal, currentNumber) {
+	return runningTotal + currentNumber	
+
+}
+
+
+
+console.log(myNumbers.reduce (summer, 0)
+
+0 above is the starting place
+Reduce and filter expect to have values return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

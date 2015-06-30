@@ -252,13 +252,126 @@
 // for (var i = 9; i >= 0; i--)
 // 	console.log(i)
 
-for (var i = 0; i <= 3; i++){
-	for (var j = 0; j <= 3; j++){
-		console.log(j)
+// for (var i = 0; i <= 3; i++){
+// 	for (var j = 0; j <= 3; j++){
+// 		console.log(j)
 
+
+// 	}
+// }
+
+// LOOP PRACTICE #2
+
+// USE FILTER to grab certain items from an array and "get rid" of the 
+// rest (ex.  you want to make a new array of only even numbers from a mixed 
+// array of numbers)
+
+// FILTER
+// Useful for filtering things out.  Most useful when working with an arrayof items;  like
+// items that have different properties (ex list of dogs with properties of breed and
+// temperament). Each fruit in the list below is an object
+
+// var fruits = [
+// 	{
+// 		name : "pineapple",
+// 		growsOnTree : false
+// 	},
+
+// 	{ 	name : "banana",
+// 		growsOnTree : true
+
+// 	}
+
+// ]
+
+// var treeFruit = function(fruit) {
+// 	return fruit.growsOnTree
+// }
+
+// The treeFruit function is our callback for filter
+// filter is a method on an array
+
+// fruits.filter(treeFruit) (Could get rid of this line or set it to a variable)
+// console.log(fruits.filter(treeFruit))
+
+var animals = ["rat", "cat", "butterfly", "marmot", "ocelot"];
+// for (var i=0; i<animals.length; i++) {
+// 	console.log(animals[i]);
+// }
+
+var animals = [
+	{
+		name : "rat",
+		onlyInWild : false,
+		startsWithVowel : false,
+	},
+	
+	{
+		name : "cat",
+	    onlyInWild : false,
+	    startsWithVowel : false,
+	},
+
+	
+	{	name : "butterfly",
+		onlyInWild : false,
+		startsWithVowel : false,
+	},
+
+	{  name : "marmot",
+	   onlyInWild : true,
+	   startsWithVowel : false,
+	
+	},
+
+	{  name : "ocelot",
+	   onlyInWild : true,
+	   startsWithVowel : true,
+	}
+
+]
+
+		
+
+// Problem 1	
+// var vowelFirst = function(eachAnimal) {
+// 	return !eachAnimal.startsWithVowel
+
+// }
+
+// console.log(animals.filter(vowelFirst))
+
+
+
+// Problem 2
+		
+
+		// for (var i = 0; i < animals.length; i += 2) {
+		// 	console.log(animals[i])
+		// }
+
+// SQUARE BRACKETS LET US GET INTSO AN ARRAY AND GRAB VALUES
+	
+
+
+// Problem 3	
+// 
+// console.log (animals.reverse())
+// or
+
+	for (var i = animals.length; i >= 0; i--) {
+		console.log(animals[i])
 
 	}
-}
+
+
+// Problem 4
+
+ console.log (animals.push)
+
+
+    
+
 
 
 

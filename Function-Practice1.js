@@ -23,8 +23,57 @@
 
 // Problem 3
 
-var numberArgument = prompt("Please type in a number");
-		console.log(numberArgument);
+// var numberArgument = prompt("Please type in a number");
+// var	square = (numberArgument * numberArgument)
+// 	console.log(square)
+		
+// Problem 4
+
+// var numberArgument = prompt("Please type in a number");		
+	// var makeNegative = ("-" + numberArgument)
+// 			console.log(makeNegative)
+
+// Problem 5
+
+// var numberArgument = prompt("Please type in 3 words or 3 numbers, separated by spaces");
+// 	var toArray = numberArgument.split(" ");
+// 		console.log(toArray)
+
+
+	// var weekString = "Monday Tuesday Wednesday Thursday Friday Saturday Sunday";
+	// 		var weekArray = weekString.split(" ")
+	// 			console.log(weekArray);
+
+
+// Problem 6
+
+
+
+	var startsWithA = prompt("Please type in a single word");
+		if (startsWithA.charAt(0) == "a") {
+			alert("true")
+		}
+
+		else {
+			alert("false")	
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
