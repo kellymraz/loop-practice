@@ -212,6 +212,7 @@
 // 	console.log(i);
 // }
 
+<<<<<<< HEAD
 
 // Loop Practice 1
 // Problem 1
@@ -371,6 +372,20 @@ var animals = [
 
 
     
+=======
+for (var i = 0; i <= 3; i++) {
+	for (var j = 0; j <= 3; j++){
+		console.log(j)
+	}
+}
+
+
+
+
+
+
+
+>>>>>>> 2576873e233ff01965c15972f5dcd4e242cf8bb3
 
 
 

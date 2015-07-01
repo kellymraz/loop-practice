@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-
-<html>
-	<head>
-		<title> </title>
-	</head>
-
-	<body>
-
-<script type = "text/javascript" src = "Function-Practice1.js"></script>
 
 
-	</body>
+var animals = ["rat", "cat", "butterfly", "marmot", "ocelot"]
 
-</html>
+for (var i = 0; i < animals.length; i++){
 
+	if (i === 0 || i === animals.length-1) {
+		console.log(animals[i])
+	}
+
+ 	else {
+ 		console.log(animals[i])
+
+ 		console.log(animals[i])
+
+
+
+
+ 	}
+
+}
