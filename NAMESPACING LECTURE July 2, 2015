@@ -1,0 +1,146 @@
+NAMESPACING LECTURE July 2, 2015
+
+Its about controlling what names are accesible where, related to scope.  A vague concept of creating room for names (???????)
+
+Techniques for limiting how many names are accessible in a given area of th code
+
+var first = "George"
+var middle = "Washington"
+var last = "Carver"
+
+far fullname - function(){
+	return first + " " + middle[0] + " "
+	+ last;
+
+
+}
+console.log(fullname())
+
+Above there are too many global variables.  
+
+Need to be mindful of having a small footprint in the global namespace.  Instead, define an object and turn the variables into properties.
+
+var app = {}
+
+app.first = "George"
+app.middle = "Washington"
+app.last = "Carver"
+app.fullname =function(){
+	retrun app.first + " " + app.middle + " " + applast;
+
+}
+console.log(app.fullname())
+
+Still clutter, now in the function.  You can hide some properties and show others using funcitons.  
+
+ Below is a revealing module pattern, wihich is one of many design patterns.  The community agreed to use this solution to the problem of defining variables but not letting them be accessed by other parts of the code
+
+ Below:  app is the module, only the properties on app are revealed, all the other variables are private.
+
+app.fullname has closure over the first, middle, and last variables.  You can't access these variables outside of this funciton, so nobody can mess with or mess up your code.  
+
+define a funciton
+define several local variables
+define the module you will use to reveal
+
+PROPERTIES YOU PUT ON app (THE OBJECT AS NAMED BELOW) WILL BE REVEALED OUTSIDE OF THE FUNCTION, BUT THE OTHER PROPERTIES WILL NOT
+
+
+ var appBuilder = function(){
+ 	var first = "George"
+	var middle = "Washington"
+	var last = "Carver"	
+var app = {}
+app.fullname = function(){
+	return app.first + " " + app.middle + " " + applast;	
+
+}
+	return app
+ 
+
+ }
+
+var app = appBuilder()
+
+console.log(app.fullname())
+
+In this example, app is an object with one property on it.  fullname is the property.
+
+
+IIFE
+Immediately Invoked Function Expression
+
+(function(){})();
+
+Above is a FUNCTION LITERAL
+an empty function that takes no arguments and doesn't do anything
+
+functions are callable -- by adding () at the end you can call the funciton
+
+
+
+(function() {
+	console.log("hello world")
+
+})();
+
+above we define the function and then invoke it immediately.  We don't have to give a function a name if you are only going to use it once.
+
+
+This is NOT a "self-invoking function", it is an immediately invoking function.  The former is an incorrect term you may see used. 
+
+
+
+
+for ( var i = 0; i < 10; i++ ){
+	setTimeout(function(){
+		console.log(i)
+
+	}
+}, 1500
+
+output:  says "10" ten times
+
+OR YOU COULD JUST USE ForEach!!!!
+
+"pass by VALUE"
+
+When we call a function and pass in a value, does the function have access to the value itself, or just a copy of that value?
+
+Primitive types (numbers, string, booleans, null, defined) are passed by value
+
+
+var hi = "hello"
+var mutate = function(string){
+	string = "hi!"
+}
+
+
+mutate(hi)
+
+Above, "hi!" was passed by value, 
+so it is a copy of the string and not the original
+
+var myArray = [1,2,3]
+var mutate = funciton(array){
+	array.push("hi!")
+
+}
+mutate(myArray)
+
+Non-primitive types in javascript are passed by reference.  Arrays, objects, functions are not primitive.  the work is being doen on the original array
+
+Ask yourself how variables are passed, by reference or value?  Passed-by-value versus passed-by-reference.
+
+
+Need to knkow this for each language you learn
+
+
+
+
+
+
+
+
+
+
