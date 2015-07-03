@@ -18,27 +18,19 @@
 
 // var testArray = ["javascript", "is", "awesome"];
 
-// var lettersOnly = .filter
-// (here is where you take out the 
-// 	letters and put them in a 
-// 	new array)
+// var makeString = testArray.join("");
+
+// var lettersOnly = makeString.length;
+
+// 	console.log(lettersOnly)
+
 
 // var totalLetters = function(length)
 // (above you will find the length of the array)
 
+// Got it
 
 
-// for (i=0; i === " "; i ++) {
-
-// }
-
-
-// if 
-
-
-
-
-// console.log
 
 
 // Problem 3
@@ -94,25 +86,25 @@
 // removeM('family') should return 'faily'
 // removeM('memory') should return 'eory'
 
-var removeM = function(string){
+// var removeM = function(string){
 
-	var removeM = string.split("m");
+// 	var removeM = string.split("m");
 
-	 return removeM.join("");
-
-
-}
- console.log(removeM("meaty"))
- console.log(removeM("memory"))
+// 	 return removeM.join("");
 
 
+// }
+//  console.log(removeM("meaty"))
+//  console.log(removeM("memory"))
 
+
+// GOT IT
 
 
 
 
 // Problem 6
-// Write a function called 'printObject' which takes a single object argument and console.log's each key-value pair in the format key is value on separate lines.
+// Write a function called 'printObject' which takes a single object argument and console.log's each key-value pair in the format KEY IS VALUE on separate lines.
 // // printObject({ a: 10, b: 20, c: 30 }) should print:
 // // a is 10
 // // b is 20
