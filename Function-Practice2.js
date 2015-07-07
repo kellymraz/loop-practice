@@ -105,10 +105,18 @@
 
 // Problem 6
 // Write a function called 'printObject' which takes a single object argument and console.log's each key-value pair in the format KEY IS VALUE on separate lines.
-// // printObject({ a: 10, b: 20, c: 30 }) should print:
-// // a is 10
-// // b is 20
-// // c is 30
+// printObject({ a: 10, b: 20, c: 30 }) 
+// // // a is 10
+// // // b is 20
+// // // c is 30
+
+// var printObject = function(key, value) {
+	
+
+// 	console.log(key + " is " + value)
+
+// }
+
 
 
 
@@ -148,6 +156,11 @@
 // // unique(['todd', 'avery', 'maria', 'avery']) should return ['todd', 'avery', 'maria']
 
 
+var Person = function (firstName) {
+	this.firstName = firstName;
+	console.log("Person instantiated")
+
+};
 
 
 
