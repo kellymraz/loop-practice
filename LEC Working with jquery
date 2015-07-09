@@ -1,0 +1,248 @@
+LEC Working with jquery
+
+	FIRST THING
+	DOCUMENT READY
+
+
+
+
+
+
+
+CREATING DOM ELEMENTS IN JQ //////////////
+
+$(function(){
+
+var $mainContiner = $<"div" class="main-container"></div>
+$("body").prepend($mainContaiiner)
+
+
+
+}. 2000)
+
+});
+
+
+
+we feed jq a string of html that we can 
+set to a variable
+
+Create a scscript yskr got jw in html
+
+we can a ppend or add our mainContaier to the DOM
+mainContainer is ur variable name and en element that we created.
+
+Be wary w/ virtual DOM elenents, there can only be one!!!  It is not the idea of a mainContainer Div.  if we append or prepend main container
+
+the mainContainer variable reperesents a very speific DOM element
+
+if we wan another container we can CLONE it
+/////////////////////////////////////////////
+
+You can use jq to select things in your html
+
+starting with a div with an id of "my-template"
+and an h1 that says "hello" in the html.
+
+console.log$("#my-template")
+
+var $template
+
+});
+
+
+
+In CSS
+
+#my-tmplate {
+	display : none
+}
+
+
+If you are refereincing a virtual or specoific DOM elemnent ypiou will have to clone it if it is a variable(????)
+
+NEVER have more than one lement with the same 
+i.d.
+
+Whn you clone, remove the i.d.
+
+Everytihing in your html that has some kind of "value ="
+
+
+.attr("id", null)
+
+
+clone the html, remove the i.d., and append it to the location you wish
+
+You are not just constrained to jquery.  
+If we want to add an event on somehting that is clicked on inside of a template
+ maybe yiu want something to be deleted when a user clicks it...
+
+ add a class
+
+ .find("h1") is a DOM traversal tool that returns an element.  
+
+.find will return what it is finding
+
+.append will evaluate down into a jquery object 
+with attributes 
+
+in html anything with a "name = value" is an id attribute.  in a script tag you would have source and script attributes. attributes give you additional information about an element
+
+when you append a clone you still have ids on each one - bad!!
+
+you must get rid of the ids in the clones!!!
+
+
+DOM traversal changes an element.  the assumption is tht you want to change somehting about an element, like the font size.  
+
+clone, then append the clone, then git rid of the id
+
+
+
+$("body").append($template.clone()
+	
+
+
+)
+
+
+
+when we append we stick thengs at the end of the body
+prepend sticks it at the beginning of the body
+
+jq has a thing called .last
+
+the DOM tree is read top-down
+the last element will be the most newly created
+
+we can select all classes and then traverse to the very last one / most newly created
+
+.last is a domn traversal method that returns the element it found
+
+clone, remove id, add a class, appnnd it, then you can select it
+
+you can't select elements until thay appear on the page
+
+must append something to the html before you can select it, even if you used jq to create it
+
+
+jquerey can only fiind things on the DOM, it can't find things in javascript
+
+document.getElementsByTagName
+
+IT IS IMPLRTANT TO SELECT THE LAST ONE CREATED!  MUST SPECIFY OR ALL THE INSTANCES
+ OF THE ELEMENT WILL BE CHANGED
+
+ //////////////////////////////////////////////
+
+ How to delete an element with jq
+
+ ( in html you have an  element in html]
+ <button class="delete-button">"delet me"</button> )
+
+ $(.delete-button).on("click", function({
+ 	console.log("it is working!")
+
+ }))
+
+
+if jq can't see an elemnent, the event won't run
+this is 
+
+witha delegated event you need 2 selectors
+
+first an element that exists on the page that is doc ready and is a prent element of the ancestor wwe really want, make sure it exists at point in time where click handler is attached.
+
+now we pass in a second selection so it knows which elements ot watch for.  there goes the delete button
+
+events in jquery
+
+Jquery DELEGATED EVENT
+
+.ON IS THE EVENT SELECTOR
+.on (events, handler)  makes an element the specific source of an event
+
+a document has elements inside of it and elements inside of those elements
+
+in the browser events bubble upwasrd.  a target, like a click button, is the source of the event.  when you click on a button it passes an event chain that affects all elements in the event is is attached to, like it's container(s)
+
+
+when you click on  a child you are still actually clicking on the parent because they are attached
+
+checks for the condition of the delete-button you made and will only affect the delet-button
+
+A conditional, an if staatement, if the event target matches the target run the function or else do nothing.
+
+
+You can select using   .children
+
+console.log [NAME OF an array or array-like object].children
+
+THIS WILL JUST AFFECT THE DIRECT CHILDREN
+
+IF YOU NEED TO GO DEEPER USE .find, WHICH WILL LOOK FOR ANY AND ALL DESCENDENTS
+
+
+If you want to choose a specific child, use 
+
+.children      and pass in a value, such as a 
+class name
+
+
+Breakout with Rob
+
+
+ex.  select from a mixed list just animals and leave out fruit
+
+( $(".mostly-animals").children(."fruit")
+
+
+
+
+REMEMBER YOU CAN CHAIN METHIDS IN JQ, even chaining css will work 
+
+ex.  select a certain element from an array and change the text red
+
+.children we go down ONE level, .parent lets us go up ONE level.
+
+.find lets you go down, works just like .children, but goes down multiple levels
+
+.closest lets you traverse up multiple levels, like the opposite of .find
+
+
+.addClass("red-text")
+
+.siblings ("ul")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
