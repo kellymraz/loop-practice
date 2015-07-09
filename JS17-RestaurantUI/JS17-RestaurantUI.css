@@ -1,5 +1,5 @@
-/*JS17-RestaurantUI.css*/
-.container {
+
+.container {               
 	text-align: center;
 	display: inline;
 
@@ -9,11 +9,11 @@
 .menuItemContainer {
 	text-align: center;
 	overflow: hidden;
-	padding 10px;
+	padding: 10px;
 	margin: 20px;
 	display: inline-block;
 	background-color: SkyBlue;
-	height: 240px;
+	height: 300px;
 	width: 200px;
 
 
@@ -23,9 +23,30 @@
 	position: relative;
 	margin: 5px;
 	padding: 5px
-	width: 75%;
+	width: 65%;
 	height: 50%;
 
 
 }
 
+.itemDescription {
+	overflow: hidden;
+	postion: relative;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	height: 30%;
+
+
+
+
+}
+
+
+{
+
+
+
+
+
+}

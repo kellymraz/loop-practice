@@ -80,7 +80,7 @@ var stringIngredients = this.ingredients.map(function (ingredient) {
 // console.log(stringIngredients)
 return this.name + "\n" 
 	+ "description: " + this.description + "\n"
-	+ "price: " + this.price + "\n"
+	+ "price:  $" + this.price + "\n"
 	+ "ingredients: " + stringIngredients + "\n"
 }
 
@@ -176,6 +176,16 @@ Restaurant.prototype.toString = function() {
 
 console.log(latestRestaurant)
 console.log(latestRestaurant.toString())
+
+Plate.prototype.create = function() {
+	var menuItem = $("<div id=" + "description: " + this.description + "\n"
+	+ "price: $" + this.price + "\n"
+	+ "ingredients: " + stringIngredients + "\n"
+	return menuItem;
+
+
+
+}
 
 // Restaurant.prototype.toString = function() {
       
