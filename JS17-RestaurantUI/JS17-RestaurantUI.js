@@ -177,7 +177,9 @@ Restaurant.prototype.toString = function() {
 console.log(latestRestaurant)
 console.log(latestRestaurant.toString())
 
-Plate.prototype.create = function() {
+//////////////////////////////////////////////////////////////
+
+Plate.create(Plate.prototype= function() {
 	var menuItem = $("<div id=" + "description: " + this.description + "\n"
 	+ "price: $" + this.price + "\n"
 	+ "ingredients: " + stringIngredients + "\n"
