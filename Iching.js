@@ -77,7 +77,25 @@ var isEven = function(totalCoinValue) {
 }
 
 console.log(isEven(totalCoinValue))
-// This odd or even recognizer will determine whether the line to be drawn is broken or solid
+
+
+// 
+// This odd or even recognizer will determine whether a hexagram line will be drawn as solid (if odd) or 
+// 	broken (if even)
+
+// Make a button that will start the coin toss
+// Will have to be clicked six times and form the hexagram
+
+// Make 3 coin images that will flip/bounce when that button
+// is pressed
+
+// Create the hexagram, bottom-up, drawing broken or unbroken lines based on totalCoinValue being even (broken line)  or uneven (solid line)
+
+// Recreate the Trigram chart?  
+
+// Click into the right hexagram as determined in the Trigram chart?  
+
+
 
 
 
